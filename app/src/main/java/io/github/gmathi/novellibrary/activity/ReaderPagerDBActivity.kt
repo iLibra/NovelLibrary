@@ -28,7 +28,7 @@ import io.github.gmathi.novellibrary.util.applyFont
 import kotlinx.android.synthetic.main.activity_reader_pager.*
 import org.greenrobot.eventbus.EventBus
 
-class ReaderPagerDBActivity23 : BaseActivity(), ViewPager.OnPageChangeListener, FloatingToolbar.ItemClickListener, SeekBar.OnSeekBarChangeListener {
+class ReaderPagerDBActivity : BaseActivity(), ViewPager.OnPageChangeListener, FloatingToolbar.ItemClickListener, SeekBar.OnSeekBarChangeListener {
 
     var novel: Novel? = null
     var webPage: WebPage? = null

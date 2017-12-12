@@ -2,6 +2,7 @@ package io.github.gmathi.novellibrary.fragment
 
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
+import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -68,6 +69,23 @@ class SearchUrlFragment : BaseFragment(), GenericAdapter.Listener<Novel> {
         adapter = GenericAdapter(items = ArrayList(), layoutResId = R.layout.listitem_novel, listener = this)
         recyclerView.setDefaults(adapter)
         swipeRefreshLayout.setOnRefreshListener { searchNovels() }
+        setPagination()
+    }
+
+    private fun setPagination() {
+        // Pagination
+        recyclerView.addOnScrollListener(recyclerViewOnScrollListener);
+    }
+
+    private val recyclerViewOnScrollListener = object : RecyclerView.OnScrollListener() {
+        override fun onScrollStateChanged(recyclerView: RecyclerView?, newState: Int) {
+            super.onScrollStateChanged(recyclerView, newState)
+        }
+
+        override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
+            super.onScrolled(recyclerView, dx, dy)
+            Log.d("Search URL Fragment", "Recycle view scroll listener")
+        }
     }
 
     private fun searchNovels() {
